@@ -49,3 +49,8 @@ test('chicken wing 2', t =>
         lex('function chickenWing() {}'),
         '<font color="cornflowerblue">function</font> chickenWing<font color="red">(</font><font color="red">)</font> <font color="red">{</font><font color="red">}</font>'
     ))
+test('declaration in beginning of var', t =>
+    t.deepEqual(
+        lex('const functionHello = `Sounds "good"`'),
+        '<font color="cornflowerblue">const</font> functionHello <font color="violet">=</font> <font color="lime">`Sounds "good"`</font>'
+    ))

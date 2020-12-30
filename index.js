@@ -96,7 +96,8 @@ export function tokenize(code) {
             const snippet = code.substring(i, i + declaration.length)
             if (
                 snippet === declaration &&
-                (prefixes.includes(code[i - 1]) || i === 0)
+                (prefixes.includes(code[i - 1]) || i === 0) &&
+                prefixes.includes(code[i + declaration.length])
             ) {
                 tokens.push({ string: declaration, type: 'declaration' })
                 i += declaration.length
