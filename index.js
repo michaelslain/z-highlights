@@ -17,6 +17,7 @@ const declarations = [
     'export',
     'default',
     'continue',
+    'class',
 ]
 
 export function color(string, color) {
