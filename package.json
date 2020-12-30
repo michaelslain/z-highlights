@@ -1,0 +1,15 @@
+{
+    "name": "zesty-highlights",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "",
+    "author": "m00chle",
+    "license": "MIT",
+    "type": "module",
+    "dependencies": {
+        "ava": "^3.14.0"
+    },
+    "scripts": {
+        "watch": "ava -w"
+    }
+}
