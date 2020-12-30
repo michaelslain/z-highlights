@@ -1,4 +1,4 @@
-const operators = ['+', '-', '?', '*', '%', '/', '<', '>', '=', '!']
+const operators = ['+', '-', '?', '*', '%', '/', '<', '>', '=', '!', ':']
 const brackets = ['(', ')', '[', ']', '{', '}']
 const quotes = ['"', `'`, '`']
 const declarations = [
