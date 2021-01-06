@@ -1,3 +1,5 @@
+import React from 'react'
+
 const operators = ['+', '-', '?', '*', '%', '/', '<', '>', '=', '!', ':']
 const brackets = ['(', ')', '[', ']', '{', '}']
 const quotes = ['"', `'`, '`']
@@ -20,34 +22,33 @@ const declarations = [
     'class',
 ]
 
-export function color(string, color) {
-    return `<font color="${color}">${string}</font>`
+export function color(string, color, { react }) {
+    if (!react) return `<font color="${color}">${string}</font>`
+    return <font style={{ color }}>{string}</font>
 }
 
 function isNumber(num) {
     return !Number.isNaN(Number(num)) && num !== ' ' && num !== '\n'
 }
 
-export function highlight(tokens) {
+export function highlight(tokens, { react, primary, secondary }) {
     let code = ''
 
     tokens.forEach(({ string, type, quote }) => {
         switch (type) {
             case 'declaration':
-                code += color(string, 'cornflowerblue')
+                code += color(string, primary, { react })
                 break
             case 'string':
-                code += color(quote + string + quote, 'lime')
+                code += color(quote + string + quote, secondary, { react })
                 break
             case 'operator':
-                code += color(string, 'violet')
+                code += color(string, 'grey', { react })
                 break
             case 'number':
-                code += color(string, 'orange')
+                code += color(string, secondary, { react })
                 break
             case 'bracket':
-                code += color(string, 'red')
-                break
             case 'normal':
                 code += string
                 break
@@ -130,6 +131,9 @@ export function tokenize(code) {
     return tokens
 }
 
-export function lex(code) {
-    return highlight(optimize(tokenize(code)))
+export function lex(
+    code,
+    { react = false, primary = 'cornflowerblue', secondary = 'orange' }
+) {
+    return highlight(optimize(tokenize(code)), { react, primary, secondary })
 }

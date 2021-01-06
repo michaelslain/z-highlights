@@ -6,8 +6,9 @@
     "author": "m00chle",
     "license": "MIT",
     "type": "module",
-    "dependencies": {
-        "ava": "^3.14.0"
+    "devDependencies": {
+        "ava": "^3.14.0",
+        "react": "^17.0.1"
     },
     "scripts": {
         "watch": "ava -w"
